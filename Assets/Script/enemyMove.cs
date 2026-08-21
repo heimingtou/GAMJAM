@@ -14,7 +14,7 @@ public class enemyMove : MonoBehaviour
     public bool isChasing = false;
     public Bullet bullet;
     public float countdown = 0.5f; // Thời gian giữa các lần bắn
-                                   // 
+    public bool isShoot = false;                               // 
     public Sprite dieImg;
     bool isLiving=true;
     void Start()
@@ -62,7 +62,7 @@ public class enemyMove : MonoBehaviour
             }
             else
             {
-                speed = 10;
+                speed = 7;
                 isChasing = true;
             }
             Debug.Log("duoi");
@@ -90,6 +90,10 @@ public class enemyMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(GameManager.instance.endGame)
+        {
+            return;
+        }
         if (!isLiving)
             return;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.8f, wallLayer);
@@ -103,8 +107,8 @@ public class enemyMove : MonoBehaviour
             // Cập nhật hướng để Raycast (nếu vẫn muốn né tường khi đuổi)
             direction = directionToPlayer;
             LookAtPlayer(directionToPlayer);
-            if(isChasing)
-            {if ((countdown < 0.1f))
+            if(isShoot)
+            {if ((countdown < 0.05f))
                 {
                     countdown += Time.deltaTime;
                 }
@@ -118,6 +122,7 @@ public class enemyMove : MonoBehaviour
             
             if(hit.collider!=null)
             {
+                isShoot = false;
                 StopRun();
             }
         }

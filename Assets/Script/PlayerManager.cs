@@ -33,7 +33,8 @@ public class PlayerManager : MonoBehaviour
     }
     public void Die()
     {
-        Time.timeScale = 0f;    
+        GameManager.instance.endGame = true;
+        DefeatUI.instance.ShowUI();
     }
     // Update is called once per frame
     void Update()

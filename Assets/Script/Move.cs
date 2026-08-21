@@ -9,11 +9,10 @@ public class Move : MonoBehaviour
      int speed;
     int checkKey;
     int count = 0;
-    public TextMeshProUGUI text;
+   
     void Start()
     {
         speed= GetComponent<PlayerManager>().speed;
-        text.text = count.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -26,16 +25,22 @@ public class Move : MonoBehaviour
             count++;
             if(count==UiManager.Instance.CountEnemies())
             {
-                Time.timeScale = 0;
+                
+                GameManager.instance.endGame = true;
+                VictoryUI.instance.ShowUI();
             }
-            text.text = count.ToString();
+            UiManager.Instance.UpdateCountEnemyText(count);
         }
     }
 
     // Update is called once per frame
     void Update()
     {
-            HandleMove();
+       if(GameManager.instance.endGame)
+        {
+            return;
+        }
+        HandleMove();
     }
    
     private void HandleMove()

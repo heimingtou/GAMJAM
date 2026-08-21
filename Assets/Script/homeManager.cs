@@ -22,6 +22,7 @@ public class homeManager : MonoBehaviour
     public void GotoLevel()
     {
         int level = PlayerPrefs.GetInt(UserData.Level)+1;
+        PlayerPrefs.SetInt(UserData.Level, level);
         SceneManager.LoadScene("Level "+level);
 
     }

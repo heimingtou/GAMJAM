@@ -15,6 +15,25 @@ public class findPlayer : MonoBehaviour
            enemyScript.Chasing(playerScript);
         }
     }
+    private void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            enemyScript.isShoot = true;
+
+            // (Nâng cao) Nếu tường/ vật cản chắn giữa lính và player, có thể kết hợp Raycast ở đây
+            // để kiểm tra xem có bị cản tầm nhìn không.
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            enemyScript.isShoot = false;
+
+            // Cho Enemy quay lại trạng thái tuần tra bình thường
+        }
+    }
     // Start is called before the first frame update
     void Start()
     {
