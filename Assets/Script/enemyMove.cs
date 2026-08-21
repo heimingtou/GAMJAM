@@ -13,13 +13,13 @@ public class enemyMove : MonoBehaviour
     private Vector2 direction=Vector2.right;  // Lưu hướng mà nhân vật đang nhìn/đi
     public bool isChasing = false;
     public Bullet bullet;
-    public float countdown = 0.5f; // Thời gian giữa các lần bắn
+    float countdown = 0.5f; // Thời gian giữa các lần bắn
     public bool isShoot = false;                               // 
     public Sprite dieImg;
     bool isLiving=true;
     void Start()
     {
-        
+        countdown = 0.5f;
     }
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
@@ -98,27 +98,30 @@ public class enemyMove : MonoBehaviour
             return;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.8f, wallLayer);
         Debug.DrawRay(transform.position, direction * 5f, Color.red);
+        if (isShoot)
+        {
+            if ((countdown < 0.05f))
+            {
+                countdown += Time.deltaTime;
+            }
+            else
+            {
+                player.GetComponent<PlayerManager>().TakeDamage(1);
+                countdown = 0;
+                AudioManager.Instance.PlaySFX("shoot");
+            }
+        }
         if (GameManager.instance.enemyDie)
         {
             Debug.Log("co ng bi die");
             Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
             transform.position += (Vector3)directionToPlayer * speed * Time.deltaTime;
-
+            Debug.Log("speed enemy: " + speed);
+            speed = 7;
             // Cập nhật hướng để Raycast (nếu vẫn muốn né tường khi đuổi)
             direction = directionToPlayer;
             LookAtPlayer(directionToPlayer);
-            if(isShoot)
-            {if ((countdown < 0.05f))
-                {
-                    countdown += Time.deltaTime;
-                }
-                else
-                {
-                    player.GetComponent<PlayerManager>().TakeDamage(1);
-                    countdown = 0;
-                    AudioManager.Instance.PlaySFX("shoot");
-                }
-            }
+           
             
             if(hit.collider!=null)
             {
@@ -132,6 +135,7 @@ public class enemyMove : MonoBehaviour
             {
                 checkKey = Random.Range(0, 4);
                 Debug.Log(checkKey);
+                speed = 2;
             }
             else
             { HandleMove(); }

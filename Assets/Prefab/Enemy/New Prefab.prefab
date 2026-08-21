@@ -109,6 +109,7 @@ MonoBehaviour:
   isChasing: 0
   bullet: {fileID: -4306312677165721199, guid: 0ff1c84201ce8024081b34a5219a30e4, type: 3}
   countdown: 0.5
+  isShoot: 0
   dieImg: {fileID: 21300000, guid: 41df5daac567fed4b8fa9d1361675ff1, type: 3}
 --- !u!50 &1038895662472859868
 Rigidbody2D:
@@ -341,11 +342,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.42638218, y: 0.5760021}
+    - - {x: -0.3377562, y: 0.57126784}
       - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.4466136, y: 0.054065537}
-      - {x: -0.4470032, y: 0.048889652}
-      - {x: -0.43588826, y: 0.5657114}
+      - {x: -0.3348678, y: 0.049331326}
+      - {x: -0.34681734, y: 0.06309229}
+      - {x: -0.33570236, y: 0.5751798}
   m_UseDelaunayMesh: 0
 --- !u!114 &1294763638436026008
 MonoBehaviour:
