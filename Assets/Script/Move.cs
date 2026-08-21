@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class Move : MonoBehaviour
@@ -7,9 +8,12 @@ public class Move : MonoBehaviour
     // Start is called before the first frame update
      int speed;
     int checkKey;
+    int count = 0;
+    public TextMeshProUGUI text;
     void Start()
     {
         speed= GetComponent<PlayerManager>().speed;
+        text.text = count.ToString();
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -17,7 +21,14 @@ public class Move : MonoBehaviour
         if(collision.gameObject.CompareTag("Enemy"))
         {
            enemyMove enemy= collision.gameObject.GetComponent<enemyMove>();
+            AudioManager.Instance.PlaySFX("fight");
             enemy.die();
+            count++;
+            if(count==UiManager.Instance.CountEnemies())
+            {
+                Time.timeScale = 0;
+            }
+            text.text = count.ToString();
         }
     }
 

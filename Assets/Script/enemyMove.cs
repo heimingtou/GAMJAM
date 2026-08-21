@@ -62,7 +62,7 @@ public class enemyMove : MonoBehaviour
             }
             else
             {
-                speed = 4;
+                speed = 10;
                 isChasing = true;
             }
             Debug.Log("duoi");
@@ -70,6 +70,7 @@ public class enemyMove : MonoBehaviour
     }
     public void die()
     {
+        GameManager.instance.Enemydie();
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dieImg;
         speed = 0;
         isLiving = false;
@@ -91,24 +92,28 @@ public class enemyMove : MonoBehaviour
     {
         if (!isLiving)
             return;
-        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 0.7f, wallLayer);
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.8f, wallLayer);
         Debug.DrawRay(transform.position, direction * 5f, Color.red);
-        if (isChasing)
+        if (GameManager.instance.enemyDie)
         {
+            Debug.Log("co ng bi die");
             Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
             transform.position += (Vector3)directionToPlayer * speed * Time.deltaTime;
 
             // Cập nhật hướng để Raycast (nếu vẫn muốn né tường khi đuổi)
             direction = directionToPlayer;
             LookAtPlayer(directionToPlayer);
-            if(countdown <0.1f)
-            {
-                countdown += Time.deltaTime;
-            }
-            else
-            {
-                player.GetComponent<PlayerManager>().TakeDamage(1);
-                countdown = 0;
+            if(isChasing)
+            {if ((countdown < 0.1f))
+                {
+                    countdown += Time.deltaTime;
+                }
+                else
+                {
+                    player.GetComponent<PlayerManager>().TakeDamage(1);
+                    countdown = 0;
+                    AudioManager.Instance.PlaySFX("shoot");
+                }
             }
             
             if(hit.collider!=null)
@@ -134,6 +139,7 @@ public class enemyMove : MonoBehaviour
     void StopRun()
     {
         isChasing = false;
+        GameManager.instance.enemyDie = false;
         speed = 2;
     }
     private void LookAtPlayer(Vector2 dir)

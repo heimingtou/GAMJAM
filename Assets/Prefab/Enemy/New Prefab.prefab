@@ -110,7 +110,6 @@ MonoBehaviour:
   bullet: {fileID: -4306312677165721199, guid: 0ff1c84201ce8024081b34a5219a30e4, type: 3}
   countdown: 0.5
   dieImg: {fileID: 21300000, guid: 41df5daac567fed4b8fa9d1361675ff1, type: 3}
-  isLiving: 0
 --- !u!50 &1038895662472859868
 Rigidbody2D:
   serializedVersion: 4
@@ -249,8 +248,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.5232, y: -0.00030000508, z: 0}
-    m_Extent: {x: 0.3653, y: 0.2715, z: 0}
+    m_Center: {x: 0.4117, y: -0.0029000044, z: 0}
+    m_Extent: {x: 0.25379997, y: 0.2773, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -262,8 +261,8 @@ MonoBehaviour:
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 0.17862749, y: -0.047581196, z: 0}
-  - {x: 0.86497587, y: -0.25342676, z: 0}
-  - {x: 0.86956555, y: 0.2518431, z: 0}
+  - {x: 0.6453377, y: -0.2628952, z: 0}
+  - {x: 0.6422208, y: 0.25657737, z: 0}
   - {x: 0.17862749, y: -0.024394035, z: 0}
 --- !u!1 &7374448207909051737
 GameObject:
@@ -342,11 +341,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.19903734, y: 0.5949389}
+    - - {x: -0.42638218, y: 0.5760021}
       - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.23082878, y: -0.059555594}
-      - {x: -0.2196585, y: -0.055263042}
-      - {x: -0.19698338, y: 0.5941167}
+      - {x: -0.4466136, y: 0.054065537}
+      - {x: -0.4470032, y: 0.048889652}
+      - {x: -0.43588826, y: 0.5657114}
   m_UseDelaunayMesh: 0
 --- !u!114 &1294763638436026008
 MonoBehaviour:
