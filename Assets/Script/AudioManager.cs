@@ -42,11 +42,25 @@ public class AudioManager : MonoBehaviour
     }
 
     // Hàm gọi phát âm thanh dựa trên tên
-    public void PlaySFX(string soundName)
+    public void PlaySFX(string soundName, Vector3 position = default)
     {
         if (soundDict.ContainsKey(soundName))
         {
-            sfxSource.PlayOneShot(soundDict[soundName]);
+            AudioClip clip = soundDict[soundName];
+
+            // Cách 1: Dùng PlayClipAtPoint để không bị tranh chấp AudioSource khi âm thanh ngắn phát liên tục
+            // Nếu không truyền vị trí, nó sẽ lấy vị trí mặc định (0,0,0) hoặc vị trí camera
+            if (position == default && Camera.main != null)
+            {
+                position = Camera.main.transform.position;
+            }
+
+            AudioSource.PlayClipAtPoint(clip, position);
+
+            // Hoặc nếu bạn vẫn muốn dùng sfxSource có sẵn nhưng muốn an toàn hơn cho âm thanh cực ngắn:
+            // sfxSource.PlayOneShot(clip);
+
+            Debug.Log("Phát âm thanh: " + soundName);
         }
         else
         {

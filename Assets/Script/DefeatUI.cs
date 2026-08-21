@@ -21,6 +21,7 @@ public class DefeatUI : VictoryUI
     public override void ShowUI()
     {
         this.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        AudioManager.Instance.PlaySFX("Lose");
     }
 
 }

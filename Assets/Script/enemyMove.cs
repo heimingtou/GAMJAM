@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEditor;
 using UnityEngine;
@@ -19,7 +20,7 @@ public class enemyMove : MonoBehaviour
     bool isLiving=true;
     void Start()
     {
-        countdown = 0.5f;
+     countdown= GameManager.instance.countdown;
     }
     //private void OnTriggerEnter2D(Collider2D collision)
     //{
@@ -84,6 +85,7 @@ public class enemyMove : MonoBehaviour
         {
             enemyLight.enabled = false; // Tắt đèn khi chết
         }
+        this.transform.DOScale(Vector3.zero, 5f);
 
     }
 

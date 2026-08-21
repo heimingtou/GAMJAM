@@ -8,9 +8,9 @@ public class homeManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (PlayerPrefs.HasKey(UserData.Level))
+        if (!PlayerPrefs.HasKey(UserData.Level))
         {
-            PlayerPrefs.SetInt(UserData.Level, 0);
+            PlayerPrefs.SetInt(UserData.Level, 1);
         }
     }
 
@@ -21,7 +21,12 @@ public class homeManager : MonoBehaviour
     }
     public void GotoLevel()
     {
-        int level = PlayerPrefs.GetInt(UserData.Level)+1;
+        AudioManager.Instance.PlaySFX("Click");
+        int level = PlayerPrefs.GetInt(UserData.Level);
+        if(level>=4)
+        {
+            level = 4;
+        }
         PlayerPrefs.SetInt(UserData.Level, level);
         SceneManager.LoadScene("Level "+level);
 

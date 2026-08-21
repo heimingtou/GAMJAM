@@ -22,6 +22,7 @@ public class VictoryUI : MonoBehaviour
     public virtual void ShowUI()
     {
        this.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        AudioManager.Instance.PlaySFX("Victory");
     }
     public void GoHome()
     {
@@ -29,6 +30,7 @@ public class VictoryUI : MonoBehaviour
         GameManager.instance.enemyDie = false;
         Time.timeScale = 1f;
         SceneManager.LoadScene("Home");
+        AudioManager.Instance.PlaySFX("Click");
     }
     public void Retry()
     {
@@ -38,13 +40,20 @@ public class VictoryUI : MonoBehaviour
         Time.timeScale = 1f;
         int level = PlayerPrefs.GetInt(UserData.Level);
         SceneManager.LoadScene("Level " + level);
+        AudioManager.Instance.PlaySFX("Click");
     }
     public void NextLevel()
     {
+        int level = PlayerPrefs.GetInt(UserData.Level) + 1;
+        if(level>4)
+        {
+            return;
+        }
+        AudioManager.Instance.PlaySFX("Click");
         GameManager.instance.endGame = false;
         GameManager.instance.enemyDie = false;
         Time.timeScale = 1f;
-        int level = PlayerPrefs.GetInt(UserData.Level) + 1;
+        
         PlayerPrefs.SetInt(UserData.Level, level);
         SceneManager.LoadScene("Level " + level);
     }
