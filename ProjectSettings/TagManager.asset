@@ -15,8 +15,8 @@ TagManager:
   - light
   - hp
   - frameHp
-  - 
-  - 
+  - enemy
+  - player
   - 
   - 
   - 

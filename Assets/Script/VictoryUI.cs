@@ -38,22 +38,20 @@ public class VictoryUI : MonoBehaviour
         
         GameManager.instance.enemyDie = false;
         Time.timeScale = 1f;
-        int level = PlayerPrefs.GetInt(UserData.Level);
-        SceneManager.LoadScene("Level " + level);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         AudioManager.Instance.PlaySFX("Click");
     }
     public void NextLevel()
     {
         int level = PlayerPrefs.GetInt(UserData.Level) + 1;
-        if(level>11)
+        if(level>20)
         {
-            return;
+            level=UnityEngine.Random.Range(1, 21);
         }
         AudioManager.Instance.PlaySFX("Click");
         GameManager.instance.endGame = false;
         GameManager.instance.enemyDie = false;
         Time.timeScale = 1f;
-        
         PlayerPrefs.SetInt(UserData.Level, level);
         SceneManager.LoadScene("Level " + level);
     }

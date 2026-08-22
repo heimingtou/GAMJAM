@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 183160224451218012}
   - component: {fileID: 1038895662472859868}
   - component: {fileID: 9013730898509620541}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: New Prefab
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -108,7 +108,6 @@ MonoBehaviour:
     m_Bits: 8
   isChasing: 0
   bullet: {fileID: -4306312677165721199, guid: 0ff1c84201ce8024081b34a5219a30e4, type: 3}
-  countdown: 0.5
   isShoot: 0
   dieImg: {fileID: 21300000, guid: 41df5daac567fed4b8fa9d1361675ff1, type: 3}
 --- !u!50 &1038895662472859868
@@ -167,10 +166,10 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.01149866, y: -0.006054491}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -181,7 +180,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.33, y: 0.43}
+  m_Size: {x: 0.44498664, y: 0.49054587}
   m_EdgeRadius: 0
 --- !u!1 &7088212589409333895
 GameObject:

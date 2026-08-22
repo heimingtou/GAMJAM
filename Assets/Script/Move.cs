@@ -15,7 +15,7 @@ public class Move : MonoBehaviour
         speed= GetComponent<PlayerManager>().speed;
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
         if(collision.gameObject.CompareTag("Enemy"))
         {
@@ -23,7 +23,8 @@ public class Move : MonoBehaviour
             AudioManager.Instance.PlaySFX("fight");
             enemy.die();
             count++;
-            if(count==UiManager.Instance.CountEnemies())
+            Debug.Log("giet enemy");
+            if (count==UiManager.Instance.CountEnemies())
             {
                 
                 GameManager.instance.endGame = true;
