@@ -23,9 +23,9 @@ public class homeManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX("Click");
         int level = PlayerPrefs.GetInt(UserData.Level);
-        if(level>=4)
+        if(level>=11)
         {
-            level = 4;
+            level = 11;
         }
         PlayerPrefs.SetInt(UserData.Level, level);
         SceneManager.LoadScene("Level "+level);

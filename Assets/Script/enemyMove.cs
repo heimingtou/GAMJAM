@@ -14,7 +14,7 @@ public class enemyMove : MonoBehaviour
     private Vector2 direction=Vector2.right;  // Lưu hướng mà nhân vật đang nhìn/đi
     public bool isChasing = false;
     public Bullet bullet;
-    float countdown = 0.5f; // Thời gian giữa các lần bắn
+    float countdown; // Thời gian giữa các lần bắn
     public bool isShoot = false;                               // 
     public Sprite dieImg;
     bool isLiving=true;

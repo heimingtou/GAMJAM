@@ -9,10 +9,20 @@ public class GameManager : MonoBehaviour
     public bool endGame = false; // Variable to track if the player has won
     public float countdown;
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        instance = this; // Assign the instance to this object
+        if (instance == null)
+        {
+            instance = this; // Assign the instance to this object
+           
+        }
+        else
+        {
+            Destroy(gameObject); // Destroy duplicate instances
+        }
     }
+
+   
     public void Enemydie()
     {
         enemyDie = true;

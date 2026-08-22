@@ -45,7 +45,7 @@ public class VictoryUI : MonoBehaviour
     public void NextLevel()
     {
         int level = PlayerPrefs.GetInt(UserData.Level) + 1;
-        if(level>4)
+        if(level>11)
         {
             return;
         }
