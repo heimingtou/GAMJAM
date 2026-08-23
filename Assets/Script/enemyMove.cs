@@ -18,9 +18,12 @@ public class enemyMove : MonoBehaviour
     public bool isShoot = false;                               // 
     public Sprite dieImg;
     bool isLiving=true;
+    
     void Start()
     {
-     countdown= GameManager.instance.countdown;
+       
+        player= GameObject.FindGameObjectWithTag("Player");
+        countdown = GameManager.instance.countdown;
     }
     //private void OnTriggerEnter2D(Collider2D collision)
     //{

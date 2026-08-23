@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -9,15 +10,25 @@ public class Move : MonoBehaviour
      int speed;
     int checkKey;
     int count = 0;
-   
+    Vector3 pos;
+    private Rigidbody2D rb;
     void Start()
     {
-        speed= GetComponent<PlayerManager>().speed;
+        pos = new Vector3(-15.16f, -8.2f, 0);
+        this.transform.DOMove(pos, 1f).SetEase(Ease.OutBack);
+        speed = GetComponent<PlayerManager>().speed;
+        rb= GetComponent<Rigidbody2D>();
+        if(rb != null)
+        {
+            rb.collisionDetectionMode= CollisionDetectionMode2D.Continuous;
+            rb.freezeRotation = true; // Khóa xoay vật lý
+        }
     }
 
     private void OnCollisionEnter2D(UnityEngine.Collision2D collision)
     {
-        if(collision.gameObject.CompareTag("Enemy"))
+        if (GameManager.instance.endGame) return;
+        if (collision.gameObject.CompareTag("Enemy"))
         {
            enemyMove enemy= collision.gameObject.GetComponent<enemyMove>();
             AudioManager.Instance.PlaySFX("fight");
@@ -35,50 +46,56 @@ public class Move : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-       if(GameManager.instance.endGame)
+        if (GameManager.instance.endGame)
         {
+            rb.velocity = Vector2.zero; // Dừng chuyển động khi kết thúc game
             return;
         }
         HandleMove();
+        // Hàm Update cũ có thể xóa hoặc chỉ để bắt sự kiện khác nếu cần, 
+        // nhưng với di chuyển vật lý thì đưa hết vào FixedUpdate.
     }
-   
+
+
+
     private void HandleMove()
     {
-        if (Input.GetKey(KeyCode.RightArrow) )
-        { // bat phim
-           
-            transform.position += new Vector3(speed * Time.deltaTime, 0, 0);
-            
-            checkKey = 0;
-           
+        Vector2 targetVelocity = Vector2.zero;
+        
 
-            //x = 1; y = 0;
+        if (Input.GetKey(KeyCode.RightArrow))
+        {
+            targetVelocity = new Vector2(speed, 0);
+            checkKey = 0;
+            
         }
         else if (Input.GetKey(KeyCode.LeftArrow))
-        { // bat phim
-          
-            transform.position += new Vector3(-1 * speed * Time.deltaTime, 0, 0);
+        {
+            targetVelocity = new Vector2(-speed, 0);
             checkKey = 1;
-
+           
         }
         else if (Input.GetKey(KeyCode.DownArrow))
-        { // bat phim
-            
-            transform.position += new Vector3(0, -1 * speed * Time.deltaTime, 0);
-            //transform.rotation = Quaternion.Euler(0, 0, angel);
+        {
+            targetVelocity = new Vector2(0, -speed);
             checkKey = 2;
-
+            
         }
-        else if (Input.GetKey(KeyCode.UpArrow) )
-        { // bat phim
-           
-            transform.position += new Vector3(0, speed * Time.deltaTime, 0);
-            //transform.rotation = Quaternion.Euler(0, 0, angel);
+        else if (Input.GetKey(KeyCode.UpArrow))
+        {
+            targetVelocity = new Vector2(0, speed);
             checkKey = 3;
-
+           
         }
+
+        if (rb != null)
+        {
+            // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
+            rb.velocity = targetVelocity;
+        }
+
         RotateCharacter();
     }
     private void RotateCharacter()

@@ -7,6 +7,7 @@ public class findPlayer : MonoBehaviour
     public enemyMove enemyScript;
     private void OnTriggerEnter2D (Collider2D collision)
     {
+        if (GameManager.instance.endGame) return;
         Move playerScript = collision.gameObject.GetComponent<Move>();
         // wallLayer là Layer của bức tường
 
