@@ -13,7 +13,7 @@ public class Bullet : MonoBehaviour
         PlayerManager player= collision.gameObject.GetComponent<PlayerManager>();
         if (player!=null)
         {
-            player.TakeDamage(1);
+            player.TakeDamage(0);
         }
     }
 
