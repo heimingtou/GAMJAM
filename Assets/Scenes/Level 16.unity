@@ -5230,8 +5230,8 @@ MonoBehaviour:
   - {x: 24, y: 19, z: 0}
   - {x: 24, y: -10, z: 0}
   m_ShapePathHash: 0
-  m_Mesh: {fileID: 908296447}
-  m_InstanceId: 36260
+  m_Mesh: {fileID: 762789448}
+  m_InstanceId: 201686
   m_LocalBounds:
     m_Center: {x: -8, y: 4.5, z: 0}
     m_Extent: {x: 32, y: 14.5, z: 0}
@@ -6136,8 +6136,8 @@ Canvas:
   m_GameObject: {fileID: 691443949}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 519420031}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -6148,9 +6148,9 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_TargetDisplay: 0
---- !u!43 &908296447
+--- !u!43 &762789448
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

@@ -13,6 +13,7 @@ public class homeManager : MonoBehaviour
         if (!PlayerPrefs.HasKey(UserData.Level))
         {
             PlayerPrefs.SetInt(UserData.Level, 1);
+            PlayerPrefs.SetInt(UserData.CountLevel, 1);
         }
     }
 
@@ -25,8 +26,7 @@ public class homeManager : MonoBehaviour
     {
         AudioManager.Instance.PlaySFX("Click");
         int level = PlayerPrefs.GetInt(UserData.Level);
-        PlayerPrefs.SetInt(UserData.Level, level);
-        SceneManager.LoadScene("Level "+level);
+        SceneManager.LoadScene("Level "+ level);
 
     }
     public void Reset()
@@ -34,6 +34,7 @@ public class homeManager : MonoBehaviour
         AudioManager.Instance.PlaySFX("Click");
         PlayerPrefs.SetInt(UserData.Level, 1);
         SceneManager.LoadScene("Home");
+        PlayerPrefs.SetInt(UserData.CountLevel, 1);
     }
     public void Close()
     {

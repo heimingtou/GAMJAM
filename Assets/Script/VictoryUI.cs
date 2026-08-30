@@ -54,6 +54,8 @@ public class VictoryUI : MonoBehaviour
         Time.timeScale = 1f;
         PlayerPrefs.SetInt(UserData.Level, level);
         SceneManager.LoadScene("Level " + level);
+        int levelCount = PlayerPrefs.GetInt(UserData.CountLevel)+1;
+        PlayerPrefs.SetInt(UserData.CountLevel, levelCount);
     }
 
 }

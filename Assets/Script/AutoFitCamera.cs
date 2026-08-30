@@ -9,10 +9,13 @@ public class AutoFitCamera : MonoBehaviour
     [SerializeField] private float targetWidth = 16f;
     [SerializeField] private float targetHeight = 9f;
 
-    void Start()
+    void Awake ()
     {
-        Camera cam = GetComponent<Camera>();
+        // Đảm bảo Camera tự động xóa màn hình cũ bằng Solid Color màu đen
 
+        Camera cam = GetComponent<Camera>();
+        cam.clearFlags = CameraClearFlags.SolidColor;
+        cam.backgroundColor = Color.black;
         // Tính tỷ lệ khung hình mục tiêu (Target Aspect)
         float targetAspect = targetWidth / targetHeight;
 
