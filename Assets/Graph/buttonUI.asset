@@ -1,0 +1,17 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95e66c6366d904e98bc83428217d4fd7, type: 3}
+  m_Name: buttonUI
+  m_EditorClassIdentifier: 
+  _data:
+    _json: '{"graph":{"variables":{"Kind":"Flow","collection":{"$content":[],"$version":"A"},"$version":"A"},"controlInputDefinitions":[],"controlOutputDefinitions":[],"valueInputDefinitions":[],"valueOutputDefinitions":[],"title":null,"summary":null,"pan":{"x":-1.77084,"y":-94.03935},"zoom":1.0,"elements":[{"coroutine":false,"defaultValues":{"name":{"$content":"TouchMoveLeft","$type":"System.String"}},"position":{"x":-261.0,"y":-110.0},"guid":"46d76cc9-6f35-442b-8197-a6d42ce21395","$version":"A","$type":"Unity.VisualScripting.BoltUnityEvent"},{"coroutine":false,"defaultValues":{"name":{"$content":"TouchMoveRight","$type":"System.String"}},"position":{"x":-266.0,"y":108.0},"guid":"ae36a850-9732-4b38-88b4-399e72492520","$version":"A","$type":"Unity.VisualScripting.BoltUnityEvent"},{"coroutine":false,"defaultValues":{"name":{"$content":"TouchMoveDown","$type":"System.String"}},"position":{"x":-270.0,"y":1.0},"guid":"5d378086-5f7e-4c46-adfe-7053d73edec5","$version":"A","$type":"Unity.VisualScripting.BoltUnityEvent"},{"coroutine":false,"defaultValues":{"name":{"$content":"TouchMoveUp","$type":"System.String"}},"position":{"x":-261.0,"y":-297.0},"guid":"adbb59d5-b2f9-41f9-a101-4766eb0a8881","$version":"A","$type":"Unity.VisualScripting.BoltUnityEvent","$id":"15"},{"coroutine":false,"defaultValues":{"name":{"$content":"StopMove","$type":"System.String"}},"position":{"x":166.0,"y":149.0},"guid":"1d58f297-7935-4f19-bc5a-0a9161aeb202","$version":"A","$type":"Unity.VisualScripting.BoltUnityEvent"},{"argumentCount":1,"defaultValues":{"name":{"$content":"TouchMove","$type":"System.String"},"target":null},"position":{"x":203.0,"y":-306.0},"guid":"a2baacdd-cb04-43ab-890a-8435e293ff6d","$version":"A","$type":"Unity.VisualScripting.TriggerCustomEvent","$id":"19"},{"type":"System.Single","value":{"$content":0.0,"$type":"System.Single"},"defaultValues":{},"position":{"x":3.0,"y":11.0},"guid":"eee63240-eb6e-4318-aeeb-ca8b1005a987","$version":"A","$type":"Unity.VisualScripting.Literal","$id":"21"},{"kind":"Scene","defaultValues":{"name":{"$content":"TouchManager","$type":"System.String"}},"position":{"x":-62.0,"y":-224.0},"guid":"1c774ecc-67e2-419b-a57b-5016b7e1d066","$version":"A","$type":"Unity.VisualScripting.SetVariable","$id":"23"},{"sourceUnit":{"$ref":"15"},"sourceKey":"trigger","destinationUnit":{"$ref":"19"},"destinationKey":"enter","guid":"402abfe7-4b38-4c4e-9f89-08e69ef126f9","$type":"Unity.VisualScripting.ControlConnection"},{"sourceUnit":{"$ref":"21"},"sourceKey":"output","destinationUnit":{"$ref":"19"},"destinationKey":"argument_0","guid":"6147fcb7-ca01-40a3-8677-28547217e4cc","$type":"Unity.VisualScripting.ValueConnection"},{"sourceUnit":{"$ref":"23"},"sourceKey":"output","destinationUnit":{"$ref":"19"},"destinationKey":"target","guid":"4da03c92-ba99-4801-af8f-c4f886a7d3b7","$type":"Unity.VisualScripting.ValueConnection"}],"$version":"A"}}'
+    _objectReferences: []

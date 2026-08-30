@@ -53,7 +53,7 @@ public class Move : MonoBehaviour
             rb.velocity = Vector2.zero; // Dừng chuyển động khi kết thúc game
             return;
         }
-        HandleMove();
+        //HandleMove();
         // Hàm Update cũ có thể xóa hoặc chỉ để bắt sự kiện khác nếu cần, 
         // nhưng với di chuyển vật lý thì đưa hết vào FixedUpdate.
     }
@@ -98,6 +98,70 @@ public class Move : MonoBehaviour
 
         RotateCharacter();
     }
+
+    public void MoveRight()
+    {
+        Vector2 targetVelocity = Vector2.zero;
+        targetVelocity = new Vector2(speed, 0);
+        checkKey = 0;
+        if (rb != null)
+        {
+            // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
+            rb.velocity = targetVelocity;
+            Debug.Log("MoveRight");
+        }
+        RotateCharacter();
+    }
+    public void Moveleft()
+    {
+        Vector2 targetVelocity = Vector2.zero;
+        targetVelocity = new Vector2(-speed, 0);
+        checkKey = 1;
+        if (rb != null)
+        {
+            // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
+            rb.velocity = targetVelocity;
+            Debug.Log("Moveleft");
+        }
+        RotateCharacter();
+    }
+    public void MoveUp()
+    {
+        Vector2 targetVelocity = Vector2.zero;
+        targetVelocity = new Vector2(0,speed);
+        checkKey = 3;
+        if (rb != null)
+        {
+            // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
+            rb.velocity = targetVelocity;
+            Debug.Log("MoveUp");
+        }
+        RotateCharacter();
+    }
+    public void MoveDown()
+    {
+        Vector2 targetVelocity = Vector2.zero;
+        targetVelocity = new Vector2(0,-speed);
+        checkKey = 2;
+        if (rb != null)
+        {
+            // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
+            rb.velocity = targetVelocity;
+            Debug.Log("MoveDown");
+        }
+        RotateCharacter();
+    }
+    public void StopMoving()
+    {
+        Vector2 targetVelocity = Vector2.zero;
+        if (rb != null)
+        {
+            // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
+            rb.velocity = targetVelocity;
+        }
+    }
+
+
     private void RotateCharacter()
     {
         switch (checkKey)
