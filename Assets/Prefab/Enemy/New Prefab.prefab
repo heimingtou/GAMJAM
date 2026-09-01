@@ -229,9 +229,9 @@ MonoBehaviour:
   m_ComponentVersion: 1
   m_LightType: 1
   m_BlendStyleIndex: 0
-  m_FalloffIntensity: 0.548
-  m_Color: {r: 0.90188676, g: 0.87905663, b: 0.1412388, a: 1}
-  m_Intensity: 3.31
+  m_FalloffIntensity: 0.366
+  m_Color: {r: 0.9233239, g: 0.98490566, b: 0.34750444, a: 1}
+  m_Intensity: 1.47
   m_LightVolumeIntensity: 1
   m_LightVolumeIntensityEnabled: 0
   m_ApplyToSortingLayers: 00000000
@@ -248,8 +248,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.4117, y: -0.0029000044, z: 0}
-    m_Extent: {x: 0.25379997, y: 0.2773, z: 0}
+    m_Center: {x: 0.44345, y: -0.015549988, z: 0}
+    m_Extent: {x: 0.32555, y: 0.32255, z: 0}
   m_PointLightInnerAngle: 360
   m_PointLightOuterAngle: 360
   m_PointLightInnerRadius: 0
@@ -257,12 +257,12 @@ MonoBehaviour:
   m_ShapeLightParametricSides: 5
   m_ShapeLightParametricAngleOffset: 0
   m_ShapeLightParametricRadius: 1
-  m_ShapeLightFalloffSize: 0.02
+  m_ShapeLightFalloffSize: 0.06
   m_ShapeLightFalloffOffset: {x: 0, y: 0}
   m_ShapePath:
   - {x: 0.17862749, y: -0.047581196, z: 0}
-  - {x: 0.6453377, y: -0.2628952, z: 0}
-  - {x: 0.6422208, y: 0.25657737, z: 0}
+  - {x: 0.7088005, y: -0.279698, z: 0}
+  - {x: 0.70308757, y: 0.24689533, z: 0}
   - {x: 0.17862749, y: -0.024394035, z: 0}
 --- !u!1 &7374448207909051737
 GameObject:
@@ -341,11 +341,11 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.3377562, y: 0.57126784}
+    - - {x: -0.37892365, y: 0.5733753}
       - {x: -0.95105654, y: 0.30901697}
-      - {x: -0.3348678, y: 0.049331326}
-      - {x: -0.34681734, y: 0.06309229}
-      - {x: -0.33570236, y: 0.5751798}
+      - {x: -0.37260476, y: 0.070405886}
+      - {x: -0.37254703, y: 0.06941461}
+      - {x: -0.38030052, y: 0.5688575}
   m_UseDelaunayMesh: 0
 --- !u!114 &1294763638436026008
 MonoBehaviour:
