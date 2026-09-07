@@ -69,7 +69,7 @@ public class enemyMove : MonoBehaviour
                 speed = 7;
                 isChasing = true;
             }
-            Debug.Log("duoi");
+            
         }
     }
     public void die()
@@ -102,7 +102,7 @@ public class enemyMove : MonoBehaviour
         if (!isLiving)
             return;
         RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, 1.8f, wallLayer);
-        Debug.DrawRay(transform.position, direction * 5f, Color.red);
+       
         if (isShoot)
         {
             if ((countdown < 0.05f))
@@ -118,10 +118,10 @@ public class enemyMove : MonoBehaviour
         }
         if (GameManager.instance.enemyDie)
         {
-            Debug.Log("co ng bi die");
+          
             Vector2 directionToPlayer = (player.transform.position - transform.position).normalized;
             transform.position += (Vector3)directionToPlayer * speed * Time.deltaTime;
-            Debug.Log("speed enemy: " + speed);
+            
             speed = 7;
             // Cập nhật hướng để Raycast (nếu vẫn muốn né tường khi đuổi)
             direction = directionToPlayer;
@@ -139,7 +139,7 @@ public class enemyMove : MonoBehaviour
             if (hit.collider != null)
             {
                 checkKey = Random.Range(0, 4);
-                Debug.Log(checkKey);
+               
                 speed = 2;
             }
             else

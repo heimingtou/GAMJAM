@@ -30,6 +30,6 @@ public class Bullet : MonoBehaviour
     public virtual void Shoot(GameObject target)
     {
        target.GetComponent<PlayerManager>().TakeDamage(1);
-        Debug.Log("Shooting");
+        
     }
 }

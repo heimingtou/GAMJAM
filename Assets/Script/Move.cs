@@ -34,7 +34,7 @@ public class Move : MonoBehaviour
             AudioManager.Instance.PlaySFX("fight");
             enemy.die();
             count++;
-            Debug.Log("giet enemy");
+           
             if (count==UiManager.Instance.CountEnemies())
             {
                 
@@ -108,7 +108,7 @@ public class Move : MonoBehaviour
         {
             // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
             rb.velocity = targetVelocity;
-            Debug.Log("MoveRight");
+            
         }
         RotateCharacter();
     }
@@ -121,7 +121,7 @@ public class Move : MonoBehaviour
         {
             // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
             rb.velocity = targetVelocity;
-            Debug.Log("Moveleft");
+          
         }
         RotateCharacter();
     }
@@ -134,7 +134,7 @@ public class Move : MonoBehaviour
         {
             // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
             rb.velocity = targetVelocity;
-            Debug.Log("MoveUp");
+           
         }
         RotateCharacter();
     }
@@ -147,7 +147,7 @@ public class Move : MonoBehaviour
         {
             // Gán trực tiếp velocity để va chạm tường là khựng lại ngay, không bị trượt
             rb.velocity = targetVelocity;
-            Debug.Log("MoveDown");
+           
         }
         RotateCharacter();
     }

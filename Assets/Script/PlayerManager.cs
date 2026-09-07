@@ -23,12 +23,12 @@ public class PlayerManager : MonoBehaviour
     public void TakeDamage(int damage)
     {
         hp -= damage;
-        Debug.Log("Player HP: " + hp);
+       
         if(hp>0)
        {
             float x= hpObj.transform.localScale.x - ((scaleHp / MaxHp )* damage);
             hpObj.transform.localScale = new Vector2(x, hpObj.transform.localScale.y);
-            Debug.Log("Player HP bar scale: " + hpObj.transform.localScale.x);
+            
 
         }
         else

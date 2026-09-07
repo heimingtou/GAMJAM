@@ -26,7 +26,7 @@ public class MoveControll : MonoBehaviour
             AddEventTriggerListener(triggerEventU, EventTriggerType.PointerUp, move.StopMoving);
             AddEventTriggerListener(triggerEventL, EventTriggerType.PointerUp, move.StopMoving);
             AddEventTriggerListener(triggerEventR, EventTriggerType.PointerUp, move.StopMoving);
-            Debug.Log("AddEventTriggerListener done");
+           
         }
     }
     private void AddEventTriggerListener(EventTrigger trigger, EventTriggerType eventType, UnityEngine.Events.UnityAction action)

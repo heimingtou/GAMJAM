@@ -14,7 +14,7 @@ public class findPlayer : MonoBehaviour
         if (playerScript != null)
         {
            enemyScript.Chasing(playerScript);
-            Debug.Log("duoi theo player");
+           
         }
     }
     private void OnTriggerStay2D(Collider2D collision)
@@ -22,7 +22,7 @@ public class findPlayer : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             enemyScript.isShoot = true;
-            Debug.Log("duoi theo player shoot");
+         
 
             // (Nâng cao) Nếu tường/ vật cản chắn giữa lính và player, có thể kết hợp Raycast ở đây
             // để kiểm tra xem có bị cản tầm nhìn không.

@@ -60,11 +60,7 @@ public class AudioManager : MonoBehaviour
             // Hoặc nếu bạn vẫn muốn dùng sfxSource có sẵn nhưng muốn an toàn hơn cho âm thanh cực ngắn:
             // sfxSource.PlayOneShot(clip);
 
-            Debug.Log("Phát âm thanh: " + soundName);
-        }
-        else
-        {
-            Debug.LogWarning("Không tìm thấy âm thanh: " + soundName);
+           
         }
     }
 
