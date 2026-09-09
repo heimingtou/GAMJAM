@@ -377,8 +377,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MaxHp: 5
-  speed: 15
+  speed: 10
   hpObj: {fileID: 1331297244422046321}
+  isHidden: 0
 --- !u!1 &5330765889228320124
 GameObject:
   m_ObjectHideFlags: 0
