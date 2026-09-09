@@ -29,7 +29,12 @@ public class Bullet : MonoBehaviour
     }
     public virtual void Shoot(GameObject target)
     {
-       target.GetComponent<PlayerManager>().TakeDamage(1);
-        
+        PlayerManager player= target.GetComponent<PlayerManager>();
+        if (player.isHidden)
+        {
+            return;
+        }
+       player.TakeDamage(1);
+
     }
 }

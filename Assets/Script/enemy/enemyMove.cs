@@ -48,7 +48,7 @@ public class enemyMove : MonoBehaviour
     //        Debug.Log("duoi");
     //    }
     //}
-    public void Chasing(Move playerScript)
+    public void Chasing(PlayerManager playerScript)
     {
         // wallLayer là Layer của bức tường
        

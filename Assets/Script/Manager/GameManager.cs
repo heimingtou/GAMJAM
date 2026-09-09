@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
     public bool enemyDie = false; // Variable to track if the enemy is dead
     public bool endGame = false; // Variable to track if the player has won
     public float countdown;
+    public bool hiddenBoster = false;
     // Start is called before the first frame update
     private void Awake()
     {

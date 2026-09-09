@@ -8,12 +8,13 @@ public class findPlayer : MonoBehaviour
     private void OnTriggerEnter2D (Collider2D collision)
     {
         if (GameManager.instance.endGame) return;
-        Move playerScript = collision.gameObject.GetComponent<Move>();
+        PlayerManager playerScript = collision.gameObject.GetComponent<PlayerManager>();
         // wallLayer là Layer của bức tường
 
         if (playerScript != null)
         {
-           enemyScript.Chasing(playerScript);
+            if(playerScript.isHidden) return; // Nếu player đang ẩn, không thực hiện hành vi truy đuổi
+            enemyScript.Chasing(playerScript);
            
         }
     }
@@ -21,9 +22,13 @@ public class findPlayer : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
+            PlayerManager playerScript = collision.gameObject.GetComponent<PlayerManager>();
+            if(playerScript.isHidden) 
+            {
+                enemyScript.isShoot = false; // Nếu player đang ẩn, không bắn
+                return;
+            }
             enemyScript.isShoot = true;
-         
-
             // (Nâng cao) Nếu tường/ vật cản chắn giữa lính và player, có thể kết hợp Raycast ở đây
             // để kiểm tra xem có bị cản tầm nhìn không.
         }
