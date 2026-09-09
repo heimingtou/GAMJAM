@@ -29,6 +29,14 @@ public class PlayerManager : MonoBehaviour
             //imageBoster.color = color;
             Debug.Log("hidden");
         }
+        if (collision.gameObject.CompareTag("buffHp"))
+        {
+            Debug.Log(hp);
+            hp++;
+            Debug.Log(hp);
+            collision.gameObject.SetActive(false);
+            Debug.Log("buffHp");
+        }
     }
     public void hiddenPlayer()
     {
@@ -71,7 +79,7 @@ public class PlayerManager : MonoBehaviour
        
         if(hp>0)
         {
-            float x= hpObj.transform.localScale.x - ((scaleHp / MaxHp )* damage);
+            float x= scaleHp*((float)hp/MaxHp);
             hpObj.transform.localScale = new Vector2(x, hpObj.transform.localScale.y);
         }
         else

@@ -18,7 +18,8 @@ public class enemyMove : MonoBehaviour
     public bool isShoot = false;                               // 
     public Sprite dieImg;
     bool isLiving=true;
-    
+    public GameObject hpBosterPrefab; // Prefab của HP Booster
+
     void Start()
     {
        
@@ -74,6 +75,7 @@ public class enemyMove : MonoBehaviour
     }
     public void die()
     {
+        Vector3 position= gameObject.transform.position;
         GameManager.instance.Enemydie();
         this.gameObject.GetComponent<SpriteRenderer>().sprite = dieImg;
         speed = 0;
@@ -88,10 +90,22 @@ public class enemyMove : MonoBehaviour
         {
             enemyLight.enabled = false; // Tắt đèn khi chết
         }
+        int random = UnityEngine.Random.Range(0, 100)%5;
+        Debug.Log("Random: " + random);
+        if (random == 2)
+        {
+            StartCoroutine(InstanceHpBoster(5f, position));
+            Debug.Log("Instance HpBoster");
+        }
+       
         this.transform.DOScale(Vector3.zero, 5f);
 
     }
-
+    IEnumerator InstanceHpBoster(float delayTime, Vector3 Position)
+    {
+        yield return new WaitForSeconds(delayTime);
+        Instantiate(hpBosterPrefab, Position, Quaternion.identity);
+    }
     // Update is called once per frame
     void Update()
     {

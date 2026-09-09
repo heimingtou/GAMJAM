@@ -110,6 +110,7 @@ MonoBehaviour:
   bullet: {fileID: -4306312677165721199, guid: 0ff1c84201ce8024081b34a5219a30e4, type: 3}
   isShoot: 0
   dieImg: {fileID: 21300000, guid: 41df5daac567fed4b8fa9d1361675ff1, type: 3}
+  hpBosterPrefab: {fileID: 4754588012127976757, guid: 513db9d447e2d2e49b955e5324a252c6, type: 3}
 --- !u!50 &1038895662472859868
 Rigidbody2D:
   serializedVersion: 4
